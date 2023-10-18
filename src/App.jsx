@@ -129,9 +129,9 @@ export default function App() {
       let texts = [];
       texts.push(this.name + "は【" + usedItem.name + "】を使用した！");
       texts.push(this.items.find(target => target.name == usedItem.name).use(targetPartyMember, targetEnemy));
-      let itemsCopy = [...this.items];
-      itemsCopy.find(item => item.name == usedItem.name).stock -= 1;
-      this.items = itemsCopy;
+      let itemListCopy=[...items];
+      itemListCopy.find(item => item.name == usedItem.name).stock -= 1;
+      this.items=itemListCopy.filter(item=>this.items.find(thisItem=>thisItem.name==item.namee)!=null);
       return texts;
     }
   }
